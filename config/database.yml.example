@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: shop_development
+  pool: 5
+  host: localhost
+  port: 5432
+  user:
+  password:
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: shop_test
+  pool: 25
+  host: localhost
+  port: 5432
+  user:
+  password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: shop_production
+  pool: 25
+  user:
+  password:
