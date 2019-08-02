@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-xs-12.col-sm-8.offset-sm-2
+      %h1 Movies
+      -#= image_tag(@product.avatar) if @product.avatar
+      %img{ src: @product.avatar }
+      %h3= @product.name
+      %p= @product.description
+      %h3= @product.price
