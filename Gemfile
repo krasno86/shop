@@ -19,6 +19,8 @@ gem 'simple_form', '~> 4.1'
 gem 'bootstrap', '~> 4.2.1'
 gem 'haml-rails', '~> 2.0'
 gem 'rails_admin', '~> 1.4', '>= 1.4.2'
+gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
