@@ -16,5 +16,5 @@
         %li.nav-item
           %a.nav-link{:href => "#"} Link 2
         %li.nav-item
-          %a.nav-link{:href => "#"} Link 3
+          = link_to 'Contacts', contacts_path, class: 'nav-link'
     = yield

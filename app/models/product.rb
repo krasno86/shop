@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  belongs_to :user
   mount_uploader :avatar, AvatarUploader
 
   validates :description, presence: true, length: { minimum: 10,

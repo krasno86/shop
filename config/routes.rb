@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resource :products, only: [:show]
+
   root to: 'products#show'
+
+  resource :products, only: [:show]
+  resource :contacts, only: [:show]
+
 end
