@@ -17,4 +17,6 @@
           = link_to 'Payments and deliveries', payments_and_deliveries_path, class: 'nav-link'
         %li.nav-item
           = link_to 'Contacts', contacts_path, class: 'nav-link'
+        %li.nav-item.nav-link
+          = dollar_rate
     = yield

@@ -21,6 +21,8 @@ gem 'haml-rails', '~> 2.0'
 gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'jquery-rails'
+gem 'httparty', '~> 0.17.0'
+gem 'whenever', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
