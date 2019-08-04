@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :products
   has_many :payment_infos
   has_many :deliveries_infos
+  has_many :orders
 end

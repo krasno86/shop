@@ -6,4 +6,5 @@
       %img{ src: @product.avatar, width: "300", height: "355" }
       %p.text-justify= @product.description
       %h3 Price: #{@product.price} $
-      %button.btn.btn-warning{type: 'button'} Create Order
+      -#%button.btn.btn-warning{type: 'button'} Create Order
+      = button_to 'Create Order', new_orders_path, class: 'btn btn-warning', method: :get

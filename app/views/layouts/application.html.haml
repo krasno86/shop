@@ -12,7 +12,7 @@
       = link_to 'Main page', root_path
       %ul.navbar-nav
         %li.nav-item
-          %a.nav-link{:href => "#"} Link 1
+          = link_to 'Create Order', new_orders_path, class: 'nav-link'
         %li.nav-item
           = link_to 'Payments and deliveries', payments_and_deliveries_path, class: 'nav-link'
         %li.nav-item
