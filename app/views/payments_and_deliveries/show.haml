@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-xs-12.col-sm-8.offset-sm-2.text-center
+      %h1 Payment methods:
+      - @payment_infos.each do |payment|
+        %h3= payment.payment_type
+        %h3= payment.description
+      %h1 Deliveries:
+      - @deliveries_infos.each do |delivery|
+        %h3= delivery.delivery_type
+        %h3= delivery.description

@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: %i[user merchant admin]
+
+  has_one :contact_info
+
+  has_many :products
+  has_many :payment_infos
+  has_many :deliveries_infos
 end
