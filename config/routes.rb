@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resource :products, only: [:show]
   resource :contacts, only: [:show]
   resource :payments_and_deliveries, only: [:show]
-  resource :orders, only: [:new, :create]
+  resource :orders, only: [:new, :create] do
+    get 'get_warehouses', to: 'orders#get_warehouses'
+  end
 end

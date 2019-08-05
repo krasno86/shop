@@ -2,9 +2,7 @@
   .row
     .col-xs-12.col-sm-8.offset-sm-2.text-center
       %h1= @product.name
-      -#= image_tag(@product.avatar) if @product.avatar
-      %img{ src: @product.avatar, width: "300", height: "355" }
+      %img{ src: @product.avatar, width: '300', height: '355' }
       %p.text-justify= @product.description
       %h3 Price: #{@product.price} $
-      -#%button.btn.btn-warning{type: 'button'} Create Order
       = button_to 'Create Order', new_orders_path, class: 'btn btn-warning', method: :get

@@ -4,6 +4,10 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :status, default: 'New'
       t.integer :count_of_products
       t.decimal :total_price, precision: 10, scale: 2
+      t.string :user_first_name
+      t.string :user_last_name
+      t.string :region
+      t.string :warehouse
 
       t.timestamps
     end

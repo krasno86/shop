@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 2019_08_04_125956) do
     t.string "status", default: "New"
     t.integer "count_of_products"
     t.decimal "total_price", precision: 10, scale: 2
+    t.string "user_first_name"
+    t.string "user_last_name"
+    t.string "region"
+    t.string "warehouse"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
