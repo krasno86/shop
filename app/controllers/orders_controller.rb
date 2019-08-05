@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   def create
     @create_user_and_order_form = CreateUserAndOrderForm.new(user_and_order_form_params)
     if @create_user_and_order_form.save
-      redirect_to root_path, notice: "Order ID #{@create_user_and_order_form.order.id} has been created"
+      redirect_to complete_orders_path, notice: "Order ID #{@create_user_and_order_form.order.id} has been created"
     else
       render :new
     end
@@ -21,6 +21,8 @@ class OrdersController < ApplicationController
       render json: { status: 404 }
     end
   end
+
+  def order_complete; end
 
   private
 
