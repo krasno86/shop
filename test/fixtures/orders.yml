@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  count_of_products: 1
+  total_price: 1.5
+
+two:
+  status: MyString
+  count_of_products: 1
+  total_price: 1.5
