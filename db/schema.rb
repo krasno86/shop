@@ -37,11 +37,12 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "status", default: "new"
+    t.integer "status", default: 0, null: false
     t.integer "count_of_products"
     t.decimal "total_price", precision: 10, scale: 2
     t.string "region"
     t.string "warehouse"
+    t.boolean "paid", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
