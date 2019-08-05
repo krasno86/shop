@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_04_125956) do
+ActiveRecord::Schema.define(version: 2019_08_05_133659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_08_04_125956) do
     t.string "email"
     t.string "phone"
     t.string "address"
+    t.string "user_first_name"
+    t.string "user_last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -38,8 +40,6 @@ ActiveRecord::Schema.define(version: 2019_08_04_125956) do
     t.string "status", default: "New"
     t.integer "count_of_products"
     t.decimal "total_price", precision: 10, scale: 2
-    t.string "user_first_name"
-    t.string "user_last_name"
     t.string "region"
     t.string "warehouse"
     t.datetime "created_at", null: false
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 2019_08_04_125956) do
     t.bigint "products_id"
     t.index ["products_id"], name: "index_orders_on_products_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "orders_products", id: false, force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
+    t.index ["order_id", "product_id"], name: "index_orders_products_on_order_id_and_product_id"
+    t.index ["product_id", "order_id"], name: "index_orders_products_on_product_id_and_order_id"
   end
 
   create_table "payment_infos", force: :cascade do |t|

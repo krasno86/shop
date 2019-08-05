@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @create_user_and_order_form = CreateUserAndOrderForm.new(create_user_and_order_form_params)
+    @create_user_and_order_form = CreateUserAndOrderForm.new(user_and_order_form_params)
     if @create_user_and_order_form.save
       redirect_to root_path, notice: "Order ID #{@create_user_and_order_form.order.id} has been created"
     else
@@ -24,7 +24,13 @@ class OrdersController < ApplicationController
 
   private
 
-  def create_user_and_order_form_params
-    params.require(:create_user_and_order_form).permit(:email, :count_of_products, :user_first_name, :user_last_name, :region, :warehouse )
+  def user_and_order_form_params
+    params.require(:create_user_and_order_form).permit(:email,
+                                                       :phone,
+                                                       :count_of_products,
+                                                       :user_first_name,
+                                                       :user_last_name,
+                                                       :region,
+                                                       :warehouse )
   end
 end

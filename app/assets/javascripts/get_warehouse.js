@@ -14,7 +14,7 @@ $(document).ready( function () {
             }
         })
             .fail(function() {
-                alert('Coupon not valid');
+                alert('Warehouse not found or nova poshta not availible');
             })
     });
 });

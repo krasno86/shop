@@ -19,7 +19,8 @@ class NovaPoshta
                                  "calledMethod": "getWarehouses",
                                  "apiKey": "95c086bdb267e828288a44ad4ea5ceec",
                                  "methodProperties": {
-                                     "CityName": region
+                                     "CityName": region,
+                                     "Limit": 100
                                  }
                              }.to_json,
                              headers: { 'Content-Type': 'application/json' } )

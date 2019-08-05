@@ -3,12 +3,29 @@
     .col-xs-12.col-sm-8.offset-sm-2.card{ style: 'margin-top: 30px; margin-bottom: 30px; padding-top: 20px' }
       = simple_form_for @create_user_and_order_form, url: orders_path do |f|
         = f.error_notification
-        = f.input :count_of_products, input_html: { type: 'number', value: '1' }
+        = f.input :count_of_products, input_html: { type: 'number', value: 1 }
         = f.input :email, input_html: { autocomplete: 'email' }
+        = f.input :phone, input_html: { type: 'number' }
         = f.input :user_first_name
         = f.input :user_last_name
         = f.input :region, collection: @regions, label: 'Region'
         = f.input :warehouse, collection: []
+        %p
+          Usd rate:
+          %span#usd_rate
+            #{dollar_rate}
+        %p
+          One product price:
+          %span#product_price
+            #{product_price_in_usd}$
+        %p
+          Count of products selected:
+          %span#products_count
+            1
+        %p
+          Total price:
+          %span#total_price
+            #{product_price_in_usd}$ (#{product_price_in_hrivna}₴)
         .buttons.text-center
           = f.button :submit, 'Create', class: 'btn-primary '
           = f.button :button, "Cancel", type: 'reset', class: 'btn-outline-secondary'
