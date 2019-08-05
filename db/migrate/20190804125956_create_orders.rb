@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
-      t.string :status, default: 'New'
+      t.string :status, default: 'new'
       t.integer :count_of_products
       t.decimal :total_price, precision: 10, scale: 2
       t.string :region

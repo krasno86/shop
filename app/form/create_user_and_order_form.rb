@@ -32,8 +32,7 @@ class CreateUserAndOrderForm
 
   def persist!
     user = User.where(email: email).first_or_create(password: SecureRandom.hex(4))
-    ContactInfo.where(email: email,
-                      phone: phone,
+    ContactInfo.where(phone: phone,
                       user_first_name: user_first_name,
                       user_last_name: user_last_name,
                       user_id: user.id).first_or_create

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "status", default: "New"
+    t.string "status", default: "new"
     t.integer "count_of_products"
     t.decimal "total_price", precision: 10, scale: 2
     t.string "region"
