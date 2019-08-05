@@ -1,14 +1,24 @@
 class CreateUserAndOrderForm
   include ActiveModel::Model
 
+  EMAIL_REGEX_VALIDATE = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i.freeze
+
   attr_accessor :email, :count_of_products, :total_price, :region, :warehouse, :user_first_name, :user_last_name, :phone
+  attr_reader :order
 
   validates :count_of_products, numericality: { only_integer: true, greater_than: 0 }
-  # validates :total_price, numericality: { only_integer: true, greater_than: 0 }
-
-  attr_reader :order
-  attr_reader :contact_info
-
+  validates :total_price, numericality: { only_integer: true, greater_than: 0 }
+  validates :phone, presence: {message: 'Only positive number without spaces are allowed'},
+                    numericality: true,
+                    length: { minimum: 10, maximum: 15 }
+  validates :user_first_name, presence: {message: 'is mandatory, please specify one'}
+  validates :user_last_name, presence: {message: 'is mandatory, please specify one'}
+  validates :region, presence: {message: 'is mandatory, please specify one'}
+  validates :warehouse, presence: {message: 'is mandatory, please specify one'}
+  validates :email, presence: true,
+                    case_sensitive: false,
+                    format: { with: EMAIL_REGEX_VALIDATE, message: 'invalid!' }
+  
   def save
     if valid?
       persist!

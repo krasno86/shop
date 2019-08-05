@@ -4,12 +4,12 @@
       = simple_form_for @create_user_and_order_form, url: orders_path do |f|
         = f.error_notification
         = f.input :count_of_products, input_html: { type: 'number', value: 1 }
-        = f.input :email, input_html: { autocomplete: 'email' }
+        = f.input :email, input_html: { autocomplete: 'email' }, placeholder: 'user@domain.com'
         = f.input :phone, input_html: { type: 'number' }
-        = f.input :user_first_name
-        = f.input :user_last_name
-        = f.input :region, collection: @regions, label: 'Region'
-        = f.input :warehouse, collection: []
+        = f.input :user_first_name, required: true
+        = f.input :user_last_name, required: true
+        = f.input :region, collection: @regions, required: true
+        = f.input :warehouse, collection: [], required: true
         %p
           Usd rate:
           %span#usd_rate
