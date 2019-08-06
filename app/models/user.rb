@@ -21,6 +21,16 @@ class User < ApplicationRecord
             case_sensitive: false,
             format: { with: EMAIL_REGEX_VALIDATE, message: 'Email invalid!' }
 
+  def self.send_notifications(user_id, order_id)
+
+    UserNotificationJob.perform_later(user_id, order_id)
+    AdminNotificationJob.perform_later(self.admin_user_id, order_id)
+  end
+
+  def self.admin_user_id
+    find_by(role: 'admin').id
+  end
+
   private
 
   def downcase_email
