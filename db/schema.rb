@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
   create_table "orders", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.integer "count_of_products"
+    t.string "email"
+    t.string "phone"
+    t.string "user_first_name"
+    t.string "user_last_name"
     t.decimal "total_price", precision: 10, scale: 2
     t.string "region"
     t.string "warehouse"
@@ -66,6 +70,9 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "phone"
+    t.string "user_first_name"
+    t.string "user_last_name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

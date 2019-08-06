@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
 
   def user_and_order_form_params
     params.require(:create_user_and_order_form).permit(:email,
+                                                       :register,
+                                                       :password,
                                                        :phone,
                                                        :count_of_products,
                                                        :user_first_name,

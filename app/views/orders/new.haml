@@ -5,6 +5,14 @@
         = f.error_notification
         = f.input :count_of_products, input_html: { type: 'number', value: 1 }
         = f.input :email, input_html: { autocomplete: 'email' }, placeholder: 'user@domain.com'
+
+
+        -#= f.input :register, :label => false do
+        -#  = check_box_tag :register
+        = f.input :register, as: :boolean
+        = f.input :password, as: :hidden, input_html: { value: '' }, placeholder: 'password'
+        -#= f.input :password
+
         = f.input :phone, input_html: { type: 'number' }
         = f.input :user_first_name, required: true
         = f.input :user_last_name, required: true
