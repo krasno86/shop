@@ -3,12 +3,12 @@ class PaymentsAndDeliveriesController < ApplicationController
 
   def show
     @payment_infos = @merchant.payment_infos
-    @deliveries_infos = @merchant.deliveries_infos
+    @delivery_infos = @merchant.delivery_infos
   end
 
   private
 
   def set_merchant
-    @merchant = Product.first.user
+    @merchant = User.find_by(role: 'merchant')
   end
 end

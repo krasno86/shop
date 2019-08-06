@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
     t.index ["user_id"], name: "index_contact_infos_on_user_id"
   end
 
-  create_table "deliveries_infos", force: :cascade do |t|
+  create_table "delivery_infos", force: :cascade do |t|
     t.string "delivery_type"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_deliveries_infos_on_user_id"
+    t.index ["user_id"], name: "index_delivery_infos_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
   end
 
   add_foreign_key "contact_infos", "users"
-  add_foreign_key "deliveries_infos", "users"
+  add_foreign_key "delivery_infos", "users"
   add_foreign_key "orders", "products", column: "products_id"
   add_foreign_key "orders", "users"
   add_foreign_key "payment_infos", "users"

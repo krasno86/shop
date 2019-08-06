@@ -42,4 +42,12 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'DeliveryInfo' do
+    edit do
+      field :delivery_type, :ck_editor
+      field :description, :ck_editor
+      field :user
+    end
+  end
 end

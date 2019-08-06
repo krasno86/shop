@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one :contact_info
   has_many :products
   has_many :payment_infos
-  has_many :deliveries_infos
+  has_many :delivery_infos
   has_many :orders
 
   EMAIL_REGEX_VALIDATE = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i.freeze
