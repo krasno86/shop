@@ -42,5 +42,7 @@ class CreateUserAndOrderForm
                                  total_price: Product.first.price*count_of_products.to_i)
 
     @order.products << Product.first
+
+    User.send_notifications(user.id, @order.id)
   end
 end

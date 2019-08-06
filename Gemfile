@@ -23,6 +23,7 @@ gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'jquery-rails'
 gem 'httparty', '~> 0.17.0'
 gem 'whenever', '~> 1.0'
+gem 'sidekiq', '~> 5.2', '>= 5.2.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -34,6 +35,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener', '~> 1.7'
 end
 
 group :test do

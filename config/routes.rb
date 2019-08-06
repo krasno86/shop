@@ -1,5 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users
+  mount Sidekiq::Web => '/sidekiq'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root to: 'products#show'
