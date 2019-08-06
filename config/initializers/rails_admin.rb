@@ -43,11 +43,26 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'DeliveryInfo' do
+  config.model 'PaymentAndDeliveryInfo' do
     edit do
-      field :delivery_type, :ck_editor
       field :description, :ck_editor
       field :user
+    end
+  end
+
+  config.model 'ContactInfo' do
+    edit do
+      field :description, :ck_editor
+      field :user
+    end
+  end
+
+  config.model 'Product' do
+    label 'Main Page'
+    edit do
+      field :description, :ck_editor
+      field :user
+      field :price
     end
   end
 end

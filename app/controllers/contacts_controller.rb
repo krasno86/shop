@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
-  before_action :set_contacts, only: [:show]
+  before_action :set_contact_info, only: [:show]
 
   def show; end
 
   private
 
-  def set_contacts
-    @contacts = Product.first.user.contact_info
+  def set_contact_info
+    @contact_info = User.get_merchant.contact_info.description
   end
 end

@@ -8,11 +8,10 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
-  has_one :contact_info
-  has_many :products
-  has_many :payment_infos
-  has_many :delivery_infos
-  has_many :orders
+  has_one :contact_info, dependent: :destroy
+  has_one :payment_and_delivery_info, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   EMAIL_REGEX_VALIDATE = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i.freeze
 
@@ -29,6 +28,10 @@ class User < ApplicationRecord
 
   def self.admin_user_id
     find_by(role: 'admin').id
+  end
+
+  def self.get_merchant
+    find_by(role: 'merchant')
   end
 
   private

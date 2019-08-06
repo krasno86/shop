@@ -16,24 +16,11 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
   enable_extension "plpgsql"
 
   create_table "contact_infos", force: :cascade do |t|
-    t.string "email"
-    t.string "phone"
-    t.string "address"
-    t.string "user_first_name"
-    t.string "user_last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_contact_infos_on_user_id"
-  end
-
-  create_table "delivery_infos", force: :cascade do |t|
-    t.string "delivery_type"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_delivery_infos_on_user_id"
+    t.index ["user_id"], name: "index_contact_infos_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -58,13 +45,12 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
     t.index ["product_id", "order_id"], name: "index_orders_products_on_product_id_and_order_id"
   end
 
-  create_table "payment_infos", force: :cascade do |t|
-    t.string "payment_type"
+  create_table "payment_and_delivery_infos", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_payment_infos_on_user_id"
+    t.index ["user_id"], name: "index_payment_and_delivery_infos_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -73,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
     t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -92,9 +77,8 @@ ActiveRecord::Schema.define(version: 2019_08_05_133659) do
   end
 
   add_foreign_key "contact_infos", "users"
-  add_foreign_key "delivery_infos", "users"
   add_foreign_key "orders", "products", column: "products_id"
   add_foreign_key "orders", "users"
-  add_foreign_key "payment_infos", "users"
+  add_foreign_key "payment_and_delivery_infos", "users"
   add_foreign_key "products", "users"
 end

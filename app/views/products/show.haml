@@ -1,8 +1,1 @@
-.container
-  .row
-    .col-xs-12.col-sm-8.offset-sm-2.text-center
-      %h1= @product.name
-      %img{ src: @product.avatar, width: '300', height: '355' }
-      %p.text-justify= @product.description
-      %h3 Price: #{@product.price} $
-      = button_to 'Create Order', new_orders_path, class: 'btn btn-warning', method: :get
+%p=@product.description.html_safe

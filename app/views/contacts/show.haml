@@ -1,7 +1,1 @@
-.container
-  .row
-    .col-xs-12.col-sm-8.offset-sm-2.text-center
-      %h3 email: #{@contacts.email}
-      %h3 phone number: #{@contacts.phone}
-      - if @contacts.address?
-        %h3= "location: #{@contacts.address}"
+%p= @contact_info.html_safe if @contact_info

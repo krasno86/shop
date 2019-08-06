@@ -2,13 +2,12 @@ class PaymentsAndDeliveriesController < ApplicationController
   before_action :set_merchant, only: [:show]
 
   def show
-    @payment_infos = @merchant.payment_infos
-    @delivery_infos = @merchant.delivery_infos
+    @payment_and_delivery_info = @merchant.payment_and_delivery_info.description || ''
   end
 
   private
 
   def set_merchant
-    @merchant = User.find_by(role: 'merchant')
+    @merchant = User.get_merchant
   end
 end
