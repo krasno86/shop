@@ -1,7 +1,10 @@
 class Page < ApplicationRecord
   belongs_to :user
 
-  enum page_type: %i[contacts shipment]
+  validates :page_type, presence: true
+  validates :html, presence: true
+
+  enum page_type: %i[contacts shipment product]
 
   def self.get_full_content(merchant)
     page_content = merchant.pages.find_by(page_type: 'contacts').html
