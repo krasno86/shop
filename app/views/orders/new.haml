@@ -5,14 +5,9 @@
         = f.error_notification
         = f.input :count_of_products, input_html: { type: 'number', value: 1 }
         = f.input :email, input_html: { autocomplete: 'email' }, placeholder: 'user@domain.com'
-
-
-        -#= f.input :register, :label => false do
-        -#  = check_box_tag :register
-        = f.input :register, as: :boolean
-        = f.input :password, as: :hidden, input_html: { value: '' }, placeholder: 'password'
-        -#= f.input :password
-
+        = f.input :register, as: :boolean, label: 'Register me. If you choose register, Password is required *'
+        = f.input :password, error: 'must contain at least one lowercase letter and at least one digit adn has length minimum 8 characters',
+                  input_html: { value: '' }, label: 'Password'
         = f.input :phone, input_html: { type: 'number' }
         = f.input :user_first_name, required: true
         = f.input :user_last_name, required: true
@@ -30,10 +25,12 @@
           Count of products selected:
           %span#products_count
             1
-        %p
+        %hr
+        %b
           Total price:
           %span#total_price
             #{product_price_in_usd}$ (#{product_price_in_hrivna}₴)
+        %hr
         .buttons.text-center
           = f.button :submit, 'Create', class: 'btn-primary '
           = f.button :button, "Cancel", type: 'reset', class: 'btn-outline-secondary'

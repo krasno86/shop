@@ -17,8 +17,7 @@ class CreateUserAndOrderForm
   validates :email, presence: true,
                     case_sensitive: false,
                     format: { with: EMAIL_REGEX_VALIDATE, message: 'invalid!' }
-  # validates :password, presence: false,
-  #                      length: {minimum: 8, maximum: 40}
+  validates :password, length: {minimum: 8, maximum: 40}, allow_blank: true
 
 
   def save
@@ -31,17 +30,17 @@ class CreateUserAndOrderForm
   end
 
 
-  # validate :check_password_format
+  validate :check_password_format
 
-  # def check_password_format
-  #   regexps = {" must contain at least one lowercase letter" => /[a-z]+/,
-  #              " must contain at least one uppercase letter" => /[A-Z]+/,
-  #              " must contain at least one digit" => /\d+/,
-  #              " must contain at least one special character" => /[^A-Za-z0-9]+/}
-  #   regexps.each do |rule, reg|
-  #     errors.add(:password, rule) unless password.match(reg)
-  #   end
-  # end
+  def check_password_format
+    if password.present? && register == '1'
+      regexps = {' must contain at least one lowercase letter': /[a-z]+/,
+                 ' must contain at least one digit': /\d+/}
+      regexps.each do |rule, reg|
+        errors.add(:password, rule) unless password.match(reg)
+      end
+    end
+  end
 
   private
 
@@ -69,7 +68,6 @@ class CreateUserAndOrderForm
 
     @order.products << Product.first
 
-    UserNotificationJob.perform_later(email, @order.id) if email && @order
-    AdminNotificationJob.perform_later(User.admin_id, @order.id)
+    Order.send_notifications(email, @order.id) if email && @order
   end
 end
