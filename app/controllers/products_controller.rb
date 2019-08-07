@@ -1,11 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show]
-
-  def show; end
-
-  private
-
-  def set_product
+  def show
     @product = Product.first
+    @product_content = @product.description
   end
 end
