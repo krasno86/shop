@@ -1,16 +1,18 @@
 class ContactsController < ApplicationController
-  # before_action :set_contact_info, only: [:show]
 
   def show
     @merchant = User.get_merchant
-    @page_content = @merchant.pages.find_by(page_type: 'contacts').html
-  end
+    @page_content = Page.get_full_content(@merchant)
 
-  private
-
-  def set_contact_info
-    # @contact_info = User.get_merchant.contact_info.description
-    @merchant = User.get_merchant
-    @page = @merchant.pages.html
+    # @merchant = User.get_merchant
+    # page_html = @merchant.pages.find_by(page_type: 'contacts').html
+    # email = @merchant.contact_info.email
+    # phone = @merchant.contact_info.phone
+    # doc = Nokogiri.parse(page_html)
+    # email_node = doc.at_css 'p.email'
+    # phone_node = doc.at_css 'p.phone'
+    # email_node.content = "email: #{email}"
+    # phone_node.content = "phone: #{phone}"
+    # @page_content = doc.to_s
   end
 end
