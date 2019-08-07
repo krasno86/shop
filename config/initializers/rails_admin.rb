@@ -42,27 +42,35 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-
-  config.model 'PaymentAndDeliveryInfo' do
-    edit do
-      field :description, :ck_editor
-      field :user
-    end
-  end
-
-  config.model 'ContactInfo' do
-    edit do
-      field :description, :ck_editor
-      field :user
-    end
-  end
-
+  #
+  # config.model 'PaymentAndDeliveryInfo' do
+  #   edit do
+  #     field :description, :ck_editor
+  #     field :user
+  #   end
+  # end
+  #
+  # config.model 'ContactInfo' do
+  #   edit do
+  #     field :description, :ck_editor
+  #     field :user
+  #   end
+  # end
+  #
   config.model 'Product' do
     label 'Main Page'
     edit do
       field :description, :ck_editor
       field :user
       field :price
+    end
+  end
+
+  config.model 'Page' do
+    edit do
+      field :html, :ck_editor
+      field :page_type
+      field :user
     end
   end
 end
