@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
   mount Sidekiq::Web => '/sidekiq'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

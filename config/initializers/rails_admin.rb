@@ -49,18 +49,9 @@ RailsAdmin.config do |config|
   #     field :user
   #   end
   # end
-  #
-  # config.model 'ContactInfo' do
-  #   edit do
-  #     field :description, :ck_editor
-  #     field :user
-  #   end
-  # end
-  #
+
   config.model 'Product' do
-    label 'Main Page'
     edit do
-      field :description, :ck_editor
       field :user
       field :price
     end
