@@ -1,4 +1,6 @@
 .container
   .row
     .col-xs-12.col-sm-8.offset-sm-2.text-center
-      %p= sanitize @product_info.html_safe
+      -#%p= sanitize @product_info.html_safe
+      %p= raw @product_info
+
