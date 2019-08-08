@@ -1,5 +1,5 @@
 $(document).ready( function () {
-    $('#create_user_and_order_form_count_of_products').blur(function(){
+    $('#create_user_and_order_form_count_of_products').change(function(){
         const productsCount = $('#create_user_and_order_form_count_of_products').val()
         const usd_rate = $('#usd_rate').html()
         const product_price = $('#product_price').html()
