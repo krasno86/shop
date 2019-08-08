@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   validates :warehouse, presence: true
 
   def self.send_notifications(email, order_id)
-    UserNotificationJob.perform_later(email, @order.id) if email && @order
-    AdminNotificationJob.perform_later(User.admin_id, @order.id)
+    UserNotificationJob.perform_later(email, order_id) if email && order_id
+    AdminNotificationJob.perform_later(User.admin_id, order_id)
   end
 end

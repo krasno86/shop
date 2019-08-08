@@ -2,7 +2,7 @@ class PaymentsAndDeliveriesController < ApplicationController
   before_action :set_merchant, only: [:show]
 
   def show
-    @payment_and_delivery_info = @merchant.payment_and_delivery_info.description
+    @payment_and_delivery_info = @merchant.pages.find_by(page_type: 'shipment').html
   end
 
   private

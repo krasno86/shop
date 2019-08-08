@@ -1,7 +1,7 @@
 class CreatePaymentAndDeliveryInfos < ActiveRecord::Migration[5.2]
   def change
     create_table :payment_and_delivery_infos do |t|
-      t.text :description
+      t.string :title
 
       t.timestamps
     end

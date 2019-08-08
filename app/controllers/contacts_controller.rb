@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   def show
-    @contact_info_content = User.get_merchant.contact_info.description
+    @merchant = User.get_merchant
+    @contacts_info = Page.get_full_contacts_content(@merchant)
   end
 end

@@ -1,7 +1,9 @@
 class CreateContactInfos < ActiveRecord::Migration[5.2]
   def change
     create_table :contact_infos do |t|
-      t.text :description
+      t.string :email
+      t.string :phone
+      t.string :location
 
       t.timestamps
     end
