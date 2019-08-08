@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_080850) do
   end
 
   create_table "payment_and_delivery_infos", force: :cascade do |t|
-    t.text "description"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_080850) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.text "description"
     t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

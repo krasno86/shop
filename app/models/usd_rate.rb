@@ -1,6 +1,6 @@
 class UsdRate < ApplicationRecord
-  validates :price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ },
-            numericality: { greater_than: 0, less_than: 1000000 }
+  validates :current_rate, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ },
+                           numericality: { greater_than: 0, less_than: 1000000 }
 
   def self.update_current_rate
     response = HTTParty.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')

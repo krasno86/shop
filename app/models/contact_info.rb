@@ -4,7 +4,6 @@ class ContactInfo < ApplicationRecord
 
   EMAIL_REGEX_VALIDATE = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i.freeze
 
-  validates :description, presence: true
   validates :email, presence: true,
             uniqueness: true,
             case_sensitive: false,

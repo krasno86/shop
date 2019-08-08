@@ -42,13 +42,6 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-  #
-  # config.model 'PaymentAndDeliveryInfo' do
-  #   edit do
-  #     field :description, :ck_editor
-  #     field :user
-  #   end
-  # end
 
   config.model 'Product' do
     edit do

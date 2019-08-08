@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def product_price_in_hrivna
-    "#{Product.first.price*Usd.new.price}"
+    "#{Product.first.price*@usd_rate}"
   end
 end
