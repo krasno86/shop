@@ -25,7 +25,7 @@ gem 'httparty', '~> 0.17.0'
 gem 'whenever', '~> 1.0'
 gem 'sidekiq', '~> 5.2', '>= 5.2.7'
 gem 'ckeditor', '~> 4.3'
-gem 'nokogiri', '~> 1.10', '>= 1.10.3'
+gem 'nokogiri', '~> 1.10'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
