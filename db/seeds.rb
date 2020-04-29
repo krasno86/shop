@@ -17,3 +17,16 @@ Page.create(page_type: 'product', html: "<body><p><img alt=\"\" src=\"/uploads/c
 Page.create(page_type: 'shipment', html: '<body><h1>Новая почта</h1> <p>Доставка в отделение &laquo;Нова пошта&raquo;<br /> С помощью&nbsp;доставки &laquo;Нова пошта&raquo;, Вы можете получить товар даже в самых отдаленных уголках Украины. При покупке товаров других продавцов услуга наложенного платежа оплачивается отдельно от доставки.<br /> &nbsp;</p></body>', user_id: merchant.id)
 
 UsdRate.create(current_rate: 25.70)
+
+10.times { Author.create(name: Faker::Name.unique.name) }
+
+20.times { Book.create(title: Faker::Team.name) }
+
+books = Book.all
+authors = Author.all
+Author.first.books << [Book.last, books[-2], books[-4]]
+Author.second.books << [books[-7], books[-5]]
+
+authors.each_with_index do |author, idx|
+  author.books << books[idx]
+end

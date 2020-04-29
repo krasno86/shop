@@ -103,6 +103,8 @@ GEM
     erubi (1.8.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (2.11.0)
+      i18n (>= 1.6, < 2)
     ffi (1.11.1)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
@@ -331,6 +333,7 @@ DEPENDENCIES
   ckeditor (~> 4.3)
   coffee-rails (~> 4.2)
   devise (~> 4.6, >= 4.6.2)
+  faker
   haml-rails (~> 2.0)
   httparty (~> 0.17.0)
   jbuilder (~> 2.5)
@@ -356,7 +359,7 @@ DEPENDENCIES
   whenever (~> 1.0)
 
 RUBY VERSION
-   ruby 2.6.0p0
+   ruby 2.6.5p114
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

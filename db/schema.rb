@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_080850) do
+ActiveRecord::Schema.define(version: 2020_04_29_192142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "authors_books", id: false, force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "book_id", null: false
+    t.index ["author_id", "book_id"], name: "index_authors_books_on_author_id_and_book_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string "data_file_name", null: false
