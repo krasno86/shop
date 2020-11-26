@@ -8,6 +8,6 @@ class ProductsController < ApplicationController
   private
 
   def set_product
-    @product = Product.first
+    @product = Product.last
   end
 end
