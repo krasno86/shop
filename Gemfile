@@ -23,7 +23,7 @@ gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'jquery-rails'
 gem 'httparty', '~> 0.17.0'
 gem 'whenever', '~> 1.0'
-gem 'sidekiq', '~> 5.2', '>= 5.2.7'
+gem 'sidekiq', '~> 6.4'
 gem 'ckeditor', '~> 4.3'
 gem 'nokogiri', '~> 1.10', '>= 1.10.3'
 
